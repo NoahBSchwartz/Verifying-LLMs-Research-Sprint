@@ -14,7 +14,7 @@ Some early research work into constructing a "probabilistic verifier" to look at
 
 ### Mechanistic Anomaly Detection
 
-> **Project** **Summary**<img src="./xf4xe3jv.png"
+> **Project** **Summary**<img src="./README_src/xf4xe3jv.png"
 > style="width:3.42708in;height:1.98958in" /><img src="./35penvft.png" style="width:3.5in;height:2.02083in" />
 
 We ran some early experiments for two different estimators. Each begins
