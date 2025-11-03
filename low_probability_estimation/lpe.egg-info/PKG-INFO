@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: lpe
+Version: 0.0.1
+License-File: LICENSE
+Requires-Dist: torch>=2.2.1
+Requires-Dist: tqdm
+Requires-Dist: datasets>=2.17.0
+Requires-Dist: transformers
+Requires-Dist: huggingface-hub<=0.22.2
+Requires-Dist: jaxtyping
+Requires-Dist: fancy-einsum
+Requires-Dist: blobfile
+Requires-Dist: numpy
+Requires-Dist: boostedblob
