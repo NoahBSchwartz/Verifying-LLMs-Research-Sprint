@@ -15,7 +15,7 @@ Some early research work into constructing a "probabilistic verifier" to look at
 ### Mechanistic Anomaly Detection
 
 > **Project** **Summary**<img src="./README_src/xf4xe3jv.png"
-> style="width:3.42708in;height:1.98958in" /><img src="./35penvft.png" style="width:3.5in;height:2.02083in" />
+> style="width:3.42708in;height:1.98958in" /><img src="./README_src/35penvft.png" style="width:3.5in;height:2.02083in" />
 
 We ran some early experiments for two different estimators. Each begins
 from a presumption of independence and gradually adds arguments until
@@ -50,7 +50,7 @@ inspiration from ARC’s work on estimating tail risks in NNs \[1\].
 > vanilla method (simply sampling inputs to create an output
 > distribution at the last layer) does poorly.
 >
-> <img src="./3m0edar1.png"
+> <img src="./README_src/3m0edar1.png"
 > style="width:4.13542in;height:2.26042in" />Next, the estimator works
 > better as model size increases, outperforming Quadratic Logit
 > Decomposition on the gelu-4l model (with an Itakura–Saito loss of
@@ -59,8 +59,8 @@ inspiration from ARC’s work on estimating tail risks in NNs \[1\].
 > improvement for activation extrapolation methods. It also ran ~20
 > times faster than both MHIS and ITGIS.
 
-<img src="./qcqdxm1g.png"
-style="width:4.13542in;height:2.0625in" /><img src="./fxicftvk.png"
+<img src="./README_src/qcqdxm1g.png"
+style="width:4.13542in;height:2.0625in" /><img src="./README_src/fxicftvk.png"
 style="width:3.91667in;height:1.94792in" />
 
 > **Collecting** **Neural** **Activation** **Patterns** **(NAPs)**
