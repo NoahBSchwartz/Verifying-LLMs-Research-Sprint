@@ -2,7 +2,7 @@
 
 Some early research work into constructing a "probabilistic verifier" to look at a neural network’s activations and estimate the likelihood that the network has a certain property over a range of inputs (without requiring exhaustive analysis of all possible network interactions). Using estimation rather than guarantees allows us to work with much larger NNs than current formal verification methods. (Work In Progress)
 
-### Layer-By-Layer Activation Modeling
+# Layer-By-Layer Activation Modeling
 
 We focus on the LPE task as a proof of concept but hope to extend to probabilistic verification (ie. LPE with confidence intervals) and runtime monitoring.  
 
@@ -17,7 +17,7 @@ Next, the estimator works better as model size increases, outperforming Quadrati
 
 <img width="706" height="216" alt="Screenshot 2025-11-03 at 1 18 41 PM" src="https://github.com/user-attachments/assets/6e757578-4a8e-43d1-b802-7a5ee1f5ea0d" />
 
-### Neural Activation Patterns
+# Neural Activation Patterns
 A feature we’d like to have is that as the compute/number of samples goes to infinity, the estimator converges to true formal verification. To obtain theoretically perfect estimation with layer-by-layer modelling, we might need complicated techniques like GMMs or Kernel Density Estimation at each layer. NAPs provide an easier route.
 Method: For each certified datapoint, track its most important activated features by setting a threshold that features need to meet to be considered “activated” (all other features can have any value). This carves out regions in input space corresponding to each certified datapoint. Here, the presumption of independence would correspond to a NAP consisting of the empty set (which would cover the full input space), and arguments would be sets of features to track for each input in the training dataset. We can refine regions by adding more and more features to our tracked set, add more NAPs by sampling unique inputs, and merge NAPs. At the end of the process, we should have a useful segmentation of parts of input space. 
 Results: To perform LPE, we could maintain separate Gaussian distributions for different activation regions so that the full output distribution becomes a mixture of Gaussians. For each activation region, propagation is also faster because we only need to track the activated neurons. 
@@ -26,14 +26,14 @@ Most importantly, in deployment, if a certain NAP arises, we can be more confide
 
 The diagrams above show early experiments with the MNIST dataset (each NAP corresponds to an output class). On average, a NAP captures 15% of the inputs from its target class, yet those captured inputs lead to 100% accuracy in most classes. This shows the value of picking an optimal threshold.
 
-### Mechanistic Anomaly Detection
+# Mechanistic Anomaly Detection
 
-### Adversarial Probabilistic Verification
+# Adversarial Probabilistic Verification
 
 <img width="1377" height="156" alt="adversarial_equation" src="https://github.com/user-attachments/assets/1d104fb3-d081-45ce-8cdf-15ab327cca89" />
 
 
-### References
+# References
 
 [1] Concrete Methods for Heuristic Estimation on Neural Networks
 [2] Estimating Tail Risk in Neural Networks
