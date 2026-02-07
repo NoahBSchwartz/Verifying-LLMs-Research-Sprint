@@ -4,7 +4,7 @@ Some early research work into constructing a "probabilistic verifier" to look at
 
 # Layer-By-Layer Activation Modeling
 
-We focus on the Low Probability Estimation (LPE) task as a proof of concept, but hope to extend to probabilistic verification (ie, LPE with confidence intervals) and runtime monitoring. LPE is a setting where we attempt to estimate the probability of an extremely rare event occuring, and must extrapolate from the network's activations instead of relying exclusively on random sampling.
+We focus on the Low Probability Estimation (LPE) task as a proof of concept, but hope to extend to probabilistic verification (ie, LPE with confidence intervals) and runtime monitoring. LPE is a setting where we attempt to estimate the probability of an extremely rare event occuring and must extrapolate from the network's activations instead of relying exclusively on random sampling.
 
 First, we implemented an estimator to find the probability that a small NN’s output exceeded the range [-5, 5]. Then, we applied the estimator to find the probability of generating a specific token (LPE). Finally, we scaled the estimator to a 10M parameter LLM. We follow a post taking inspiration from ARC’s work on estimating tail risks in NNs [1]. 
 Method: We pass samples through the first layer of a network and then fit a Gaussian to the distribution of activations, then sample from the first distribution and pass through the second layer to fit our second Gaussian. We continue through the network until we obtain the estimated output distribution. At each layer, we also create a mask to track a select number of covariances (here, a heuristic argument is a group of masks over the full network).
