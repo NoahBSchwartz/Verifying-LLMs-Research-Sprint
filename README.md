@@ -28,10 +28,17 @@ The diagrams above show early experiments with the MNIST dataset (each NAP corre
 
 # Mechanistic Anomaly Detection
 
+We explored using the statistical structure of internal activations to detect anomalies (such as backdoor triggers or OOD inputs) without needing labeled failure data.
+Method: We fit a Multivariate Gaussian distribution to the activations of a hidden layer on "clean" data. During inference, we calculate the Mahalanobis distance (or log probability density) of the new input's activation vector relative to this learned distribution.
+Results: Inputs that generate activations far from the distribution's mean (high Mahalanobis distance) are effectively flagged as anomalies. This could provide a mechanistic method for runtime monitoring: if the model's internal state drifts too far from its "normal" geometry, we can flag the output as potentially unreliable.
+
 # Adversarial Probabilistic Verification
 
 <img width="1377" height="156" alt="adversarial_equation" src="https://github.com/user-attachments/assets/1d104fb3-d081-45ce-8cdf-15ab327cca89" />
 
+To rigorously benchmark our estimators, we need a setting where we can calculate the "ground truth" probability of failure.
+Method: We trained a small Transformer on a constrained toy task (mapping character sequences) where we can exhaustively evaluate the model across the entire input space to find every specific failure case.
+Results: This setup allows us to perform "adversarial" verification: we can test if our probabilistic estimator correctly assigns high risk scores to the specific regions of the input space where the model actually fails.
 
 # References
 
