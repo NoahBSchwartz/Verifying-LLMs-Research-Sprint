@@ -1,4 +1,4 @@
-# Verifying LLMs Research Sprint
+# Towards LLM Verification Research Sprint
 
 Some early research work into constructing a "probabilistic verifier" to look at a neural network’s activations and estimate the likelihood that the network has a certain property over a range of inputs (without requiring exhaustive analysis of all possible network interactions). Using estimation rather than guarantees allows us to work with much larger NNs than current formal verification methods. (Work In Progress)
 
